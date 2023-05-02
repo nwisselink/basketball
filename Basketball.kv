@@ -1,0 +1,118 @@
+#:kivy 2.1.0
+
+ScreenManager:
+    MenuScreen:
+    SettingsScreen:
+    Account:
+    About:
+    Privacy:
+    NewGameScreen:
+    SelectTeamScreen:
+    EmbedSelectTeamScreen:
+    HomeScreen:
+    TeamScreen:
+    GameScreen:
+    SalaryCapExplanationScreen:
+<SalaryCapExplanationScreen>:
+    name: 'salary_cap_explanation_screen'
+<GameScreen>:
+    name: 'game_screen'
+<MenuScreen>:
+    name:"Menu"
+    BoxLayout:
+        spacing:"20dp" 
+        orientation: "vertical"
+        Label:
+            text: "The Assosciation"
+            size_hint:1,.3
+        Button:
+            text:"New Game"
+            size_hint:.8,1.7
+            pos_hint:{"x":.1}
+            on_release: app.root.current="NewGame"
+        Button:
+            text:"Continue game"
+            size_hint:.8,1.7
+            pos_hint:{"x":.1}
+        
+        Button:
+            text: "Settings"
+            size_hint:.6,.7
+            pos_hint:{"x":.2}
+            on_release: app.root.current="Settings"
+<SettingsScreen>:
+    name: "Settings"
+    BoxLayout:
+        orientation: "vertical"
+        spacing:"21dp"
+        Button:
+            text:"back"
+            size_hint:.3,.4
+            on_release:app.root.current="Menu"
+        Button:
+            text: "Account Settings"
+            size_hint:.6,1
+            pos_hint:{"x":.2}
+            on_release:app.root.current="Account"
+        Button:
+            text: "About"
+            size_hint:.6,1
+            pos_hint:{"x":.2}
+            on_release:app.root.current="About"
+        Button:
+            text: "Privacy"
+            size_hint:.6,1
+            pos_hint:{"x":.2}
+            on_release:app.root.current="Privacy"
+<Account>:
+    name: "Account"
+    BoxLayout:
+        orientation: "vertical"
+        Button:
+            text: "back"
+            size_hint: .3,.4
+            on_release: app.root.current="Settings"
+        Label: 
+            text:"Idk yet"
+<Privacy>:
+    name: "Privacy"
+    BoxLayout:
+        orientation: "vertical"
+        Button:
+            text: "back"
+            size_hint: .3,.4
+            on_release: app.root.current="Settings"
+        Label:
+            text: "insert privacy statement"
+        
+<About>:
+    name: "About"
+    BoxLayout:
+        orientation: "vertical"
+        Button:
+            text: "back"
+            size_hint: .3,.4
+            on_release: app.root.current="Settings"
+        Button:
+            text: "About"
+<NewGameScreen>:
+    name: "NewGame"
+    BoxLayout:
+        orientation:"vertical"
+        Button:
+            text: "GM Name"
+        Button:
+            text: "Select Team"
+            on_release: app.root.current="selectTeam"
+<SelectTeamScreen@StackLayout>:
+    name: "selectTeam"
+    EmbedSelectTeamScreen:
+        Button:
+            id: teamNumber_0
+            text:"Proceed"
+            size_hint: .3,.4
+            on_release:app.root.current="home_screen"
+<HomeScreen>:
+    name:"home_screen"     
+<TeamScreen>:
+    name: "team_screen"      
